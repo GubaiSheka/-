@@ -1,0 +1,246 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    margin: 0;
+    background: #eef2f5;
+}
+
+header {
+    background: linear-gradient(135deg, #1e3c2c, #2e7d32);
+    color: white;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 2rem;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #1f2a2f;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    color: #f0f0f0;
+    padding: 14px 18px;
+    text-decoration: none;
+    display: block;
+    font-weight: 500;
+    transition: 0.2s;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover {
+    background: #2c3e2f;
+    border-bottom-color: #ffb74d;
+}
+
+section {
+    display: none;
+    padding: 25px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.active {
+    display: block;
+}
+
+h2 {
+    color: #1e3c2c;
+    border-left: 6px solid #2e7d32;
+    padding-left: 16px;
+    margin-bottom: 24px;
+}
+
+h3 {
+    color: #2c3e2f;
+    margin-top: 0;
+}
+
+.platform,
+.question,
+.instruction,
+.infographic,
+.faq-card {
+    background: #ffffff;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e7e6;
+}
+
+ul {
+    padding-left: 24px;
+}
+
+li {
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    transform: scale(1.1);
+    margin-right: 12px;
+    accent-color: #2e7d32;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #5f6b6a;
+}
+
+button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 12px 26px;
+    font-size: 1rem;
+    border-radius: 40px;
+    font-weight: bold;
+    margin-top: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+}
+
+#result {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f0f7f0;
+    border-radius: 24px;
+    border-left: 6px solid #2e7d32;
+}
+
+.question {
+    background: #fefaf5;
+    border-left: 4px solid #ffb74d;
+}
+
+.answers-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 12px 0 8px;
+}
+
+.answers-vertical label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: normal;
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+hr {
+    margin: 25px 0;
+    border-color: #e2e8e6;
+}
+
+.score-badge {
+    background: #1e3c2c;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 40px;
+    color: white;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 18px;
+    color: #4f6f4f;
+    background: #e2e8e4;
+    margin-top: 30px;
+    font-size: 0.85rem;
+}
+
+/* Информационные блоки */
+.info-block {
+    background: #eef2fa;
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-left: 5px solid #2e7d32;
+}
+
+.steps-list {
+    list-style-type: decimal;
+    font-weight: normal;
+}
+
+.steps-list li {
+    margin-bottom: 12px;
+}
+
+.warning-text {
+    color: #d32f2f;
+    background: #ffebee;
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.tip-text {
+    background: #e8f0e8;
+    padding: 10px 15px;
+    border-radius: 12px;
+    margin-top: 12px;
+    color: #1e3c2c;
+}
+
+.badge {
+    background: #2e7d32;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* Адаптивность */
+@media (max-width: 680px) {
+    nav a {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .question {
+        padding: 14px;
+    }
+    
+    section {
+        padding: 20px 15px;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+}
