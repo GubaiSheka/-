@@ -1,0 +1,177 @@
+<section id="twitter">
+
+        <h2>🐦 Twitter/X: Полное руководство по безопасности</h2>
+
+        <div class="info-block">
+            <p>📊 <strong>Актуальность защиты:</strong> Twitter/X — социальная сеть и платформа для обмена короткими сообщениями, новостями и мнениями в реальном времени.
+                Взлом могут использовать для мошенничества, кражи аккаунта, рассылки фейков и доступа к другим сервисам, поэтому важно настроить приватность, фильтры и защиту аккаунта.
+            </p>
+        </div>
+
+        <div class="platform">
+            <h3>✅ Базовый чек-лист безопасности</h3>
+            <ul>
+                <li><input type="checkbox" data-key="vk3"> <strong>Включить защищённые твиты</strong></li>
+                <li><input type="checkbox" data-key="vk4"> <strong>Ограничить сообщения от незнакомых пользователей</strong></li>
+                <li><input type="checkbox" data-key="vk5"> <strong>Включить фильтрацию спама </strong></li>
+                <li><input type="checkbox" data-key="vk1"> <strong>Включить двухфакторную аутентификацию (2FA)</strong> (Обязательно)</li>
+                <li><input type="checkbox" data-key="vk2"> <strong>Проверить список активных сеансов входа</strong> и завершить подозрительные сессии</li>
+                <li><input type="checkbox" data-key="vk6"> <strong>Использовать уникальный сложный пароль</strong></li>
+            </ul>
+        </div>
+
+        <div class="platform">
+
+            <h3><span class="badge">🔒</span> Приватность твитов</h3>
+
+            <p>
+                Twitter/X позволяет ограничить круг пользователей, которые могут видеть ваши публикации. Если включить защищённые твиты, доступ к ним получат только одобренные подписчики. Это помогает контролировать аудиторию и снижает риск распространения личной информации посторонними людьми.
+            </p>
+
+            <ol class="steps-list">
+                <li>Откройте настройки аккаунта.</li>
+                <li>Перейдите в раздел конфиденциальности.</li>
+                <li>Откройте «Аудитория и отметки».</li>
+                <li>Включите «Защитить твиты».</li>
+            </ol>
+
+            <div class="tip-text">
+                Ограничьте возможность отметок на фото для дополнительной защиты.
+            </div>
+
+        </div>
+
+        <div class="platform">
+
+            <h3><span class="badge">🛡️</span> Фильтры и сообщения</h3>
+
+            <p>
+                Встроенные фильтры помогают автоматически скрывать спам, оскорбительные сообщения и подозрительные уведомления. Также можно ограничить получение личных сообщений от незнакомых пользователей. Эти настройки снижают вероятность столкновения с мошенниками, ботами и нежелательным контентом.
+            </p>
+
+            <ol class="steps-list">
+                <li>Откройте настройки уведомлений.</li>
+                <li>Перейдите в раздел фильтров.</li>
+                <li>Включите фильтрацию спама.</li>
+                <li>Ограничьте сообщения от неизвестных.</li>
+            </ol>
+
+            <div class="warning-text">
+                Не переходите по подозрительным ссылкам в сообщениях.
+            </div>
+
+        </div>
+
+        <div class="platform">
+
+            <h3><span class="badge">🐦</span> Двухфакторная аутентификация в X (Twitter)</h3>
+
+            <p>
+                Двухфакторная аутентификация (2FA) обеспечивает дополнительную защиту аккаунта X. После ввода пароля потребуется подтвердить вход с помощью приложения-аутентификатора.
+            </p>
+
+            <div class="steps-slider-wrapper">
+
+                <div class="twitter-slider">
+
+                    <div class="slider-slides">
+
+                        <div class="twitter-slide active">
+                            <div class="slide-img-box">
+                                <img src="img/Х_Главный-экран.jpg" class="slider-img">
+                                <span class="img-hint">Нажмите для увеличения</span>
+                            </div>
+
+                            <div class="slide-content">
+                                <span class="step-badge">Шаг 1</span>
+                                <p>Откройте настройки аккаунта.</p>
+                            </div>
+                        </div>
+
+                        <div class="twitter-slide">
+                            <div class="slide-img-box">
+                                <img src="img/Х_Настройки.jpg" class="slider-img">
+                                <span class="img-hint">Нажмите для увеличения</span>
+                            </div>
+
+                            <div class="slide-content">
+                                <span class="step-badge">Шаг 2</span>
+                                <p>Перейдите в раздел «Безопасность».</p>
+                            </div>
+                        </div>
+
+                        <div class="twitter-slide">
+                            <div class="slide-img-box">
+                                <img src="img/Х_Вкладка-Безопасность.jpg" class="slider-img">
+                                <span class="img-hint">Нажмите для увеличения</span>
+                            </div>
+
+                            <div class="slide-content">
+                                <span class="step-badge">Шаг 3</span>
+                                <p>Откройте раздел «Двухфакторная аутентификация».</p>
+                            </div>
+                        </div>
+
+                        <div class="twitter-slide">
+                            <div class="slide-img-box">
+                                <img src="img/Х_Вкладка-2FA.jpg" class="slider-img">
+                                <span class="img-hint">Нажмите для увеличения</span>
+                            </div>
+
+                            <div class="slide-content">
+                                <span class="step-badge">Шаг 4</span>
+                                <p>Выберите приложение-аутентификатор.</p>
+                            </div>
+                        </div>
+
+                        <div class="twitter-slide">
+                            <div class="slide-img-box">
+                                <img src="img/Х_Подключение-2FA.jpg" class="slider-img">
+                                <span class="img-hint">Нажмите для увеличения</span>
+                            </div>
+
+                            <div class="slide-content">
+                                <span class="step-badge">Шаг 5</span>
+                                <p>Подтвердите подключение и сохраните резервные коды.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-btn prev-btn" disabled>← Назад</button>
+                        <button class="slider-btn next-btn">Вперёд →</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="tip-text">
+                Рекомендуется использовать приложение-аутентификатор вместо SMS.
+            </div>
+
+        </div>
+
+        <div class="platform">
+
+            <h3><span class="badge">📱</span> Активные сеансы</h3>
+
+            <p>
+                Раздел активных сеансов показывает все устройства, с которых выполнен вход в аккаунт. Регулярная проверка списка устройств помогает своевременно обнаружить подозрительную активность и завершить несанкционированные сеансы. 
+            </p>
+
+            <ol class="steps-list">
+                <li>Откройте настройки безопасности.</li>
+                <li>Перейдите в активные сеансы.</li>
+                <li>Просмотрите список устройств.</li>
+                <li>Удалите подозрительные входы.</li>
+            </ol>
+
+            <div class="tip-text">
+                Рекомендуется проверять раз в месяц.
+            </div>
+
+        </div>
+
+    </section>
