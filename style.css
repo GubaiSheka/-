@@ -6,6 +6,9 @@ body {
     font-family: 'Segoe UI', Roboto, Arial, sans-serif;
     margin: 0;
     background: #eef2f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -55,6 +58,7 @@ nav a.active-link {
 section {
     display: none;
     padding: 25px 20px;
+    width: calc(100% - 40px);
     max-width: 1300px;
     margin: 0 auto;
     background: white;
@@ -66,6 +70,24 @@ section {
 
 .active {
     display: block;
+}
+
+#facebook.active,
+#instagram.active,
+#twitter.active,
+#vk.active,
+#ok.active {
+    display: flex;
+    flex-direction: column;
+}
+
+#facebook-section,
+#ig-checklist-section,
+#twitter-section,
+#vk-section,
+#ok-section {
+    order: 50;
+    margin-top: 20px;
 }
 
 .home-hero {
@@ -382,7 +404,7 @@ footer {
     padding: 18px;
     color: #4f6f4f;
     background: #e2e8e4;
-    margin-top: 30px;
+    margin-top: auto;
     font-size: 0.85rem;
 }
 
