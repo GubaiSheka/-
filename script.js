@@ -1,17 +1,21 @@
     // ---------- НАВИГАЦИЯ ----------
-    const links = document.querySelectorAll('nav a');
+    const links = document.querySelectorAll('a[data-target]');
+    const navLinks = document.querySelectorAll('nav a');
     const sections = document.querySelectorAll('section');
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             sections.forEach(sec => sec.classList.remove('active'));
+            navLinks.forEach(navLink => navLink.classList.remove('active-link'));
             const targetId = link.dataset.target;
             if (document.getElementById(targetId)) {
                 document.getElementById(targetId).classList.add('active');
+                document.querySelector(`nav a[data-target="${targetId}"]`)?.classList.add('active-link');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
     });
+    document.querySelector('nav a[data-target="home"]')?.classList.add('active-link');
 
 // ---------- ПРОДВИНУТЫЕ ЧЕК-ЛИСТЫ ----------
 const platformTotals = { fb: 15, ig: 14, tw: 13, vk: 18, ok: 14 };
