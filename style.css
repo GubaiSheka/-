@@ -2,18 +2,10 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 body {
     font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    margin: 0;
     background: #eef2f5;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 header {
@@ -22,65 +14,52 @@ header {
     padding: 28px 20px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0;
 }
 
-header h1 {
-    margin: 0 0 8px;
-    font-size: 2rem;
-}
+    header h1 {
+        margin: 0 0 8px;
+        font-size: 2rem;
+    }
 
 nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     background: #1f2a2f;
+    gap: 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    flex-shrink: 0;
 }
 
-nav a {
-    color: #f0f0f0;
-    padding: 14px 18px;
-    text-decoration: none;
-    display: block;
-    font-weight: 500;
-    transition: 0.2s;
-    border-bottom: 3px solid transparent;
-}
+    nav a {
+        color: #f0f0f0;
+        padding: 14px 18px;
+        text-decoration: none;
+        display: block;
+        font-weight: 500;
+        transition: 0.2s;
+        border-bottom: 3px solid transparent;
+    }
 
-nav a:hover {
-    background: #2c3e2f;
-    border-bottom-color: #ffb74d;
-}
+        nav a:hover {
+            background: #2c3e2f;
+            border-bottom-color: #ffb74d;
+        }
 
-nav a.active {
-    border-bottom-color: #ffb74d;
-    background: #2c3e2f;
-}
-
-/* Основной контент - растягивается, чтобы прижать футер */
-main {
-    flex: 1 0 auto;
-    max-width: 1300px;
-    margin: 20px auto 0;
-    width: 100%;
-    padding: 0 20px;
-}
-
-/* Стили для страниц */
-.page {
+section {
     display: none;
     padding: 25px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
     background: white;
     border-radius: 24px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
-.page.active-page {
+.active {
     display: block;
 }
 
@@ -96,7 +75,11 @@ h3 {
     margin-top: 0;
 }
 
-.platform, .question, .instruction-block, .infographic, .faq-card {
+.platform,
+.question,
+.instruction,
+.infographic,
+.faq-card {
     background: #ffffff;
     padding: 18px 22px;
     margin-bottom: 20px;
@@ -140,10 +123,10 @@ button {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
-    background: #1b5e20;
-    transform: translateY(-2px);
-}
+    button:hover {
+        background: #1b5e20;
+        transform: translateY(-2px);
+    }
 
 #result {
     margin-top: 25px;
@@ -165,12 +148,18 @@ button:hover {
     margin: 12px 0 8px;
 }
 
-.answers-vertical label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    padding: 4px 0;
+    .answers-vertical label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: normal;
+        cursor: pointer;
+        padding: 4px 0;
+    }
+
+hr {
+    margin: 25px 0;
+    border-color: #e2e8e6;
 }
 
 .score-badge {
@@ -183,17 +172,16 @@ button:hover {
     margin-bottom: 15px;
 }
 
-/* Футер - прижат к низу */
 footer {
     text-align: center;
     padding: 18px;
     color: #4f6f4f;
     background: #e2e8e4;
+    margin-top: 30px;
     font-size: 0.85rem;
-    flex-shrink: 0;
-    margin-top: auto;
 }
 
+/* Информационные блоки */
 .info-block {
     background: #eef2fa;
     border-radius: 16px;
@@ -202,13 +190,14 @@ footer {
     border-left: 5px solid #2e7d32;
 }
 
-.tip-text {
-    background: #e8f0e8;
-    padding: 10px 15px;
-    border-radius: 12px;
-    margin-top: 12px;
-    color: #1e3c2c;
+.steps-list {
+    list-style-type: decimal;
+    font-weight: normal;
 }
+
+    .steps-list li {
+        margin-bottom: 12px;
+    }
 
 .warning-text {
     color: #d32f2f;
@@ -216,6 +205,14 @@ footer {
     padding: 10px 15px;
     border-radius: 12px;
     font-weight: 500;
+}
+
+.tip-text {
+    background: #e8f0e8;
+    padding: 10px 15px;
+    border-radius: 12px;
+    margin-top: 12px;
+    color: #1e3c2c;
 }
 
 .badge {
@@ -228,7 +225,444 @@ footer {
     margin-right: 8px;
 }
 
-/* Чек-листы */
+/* --- Стили для интерактивного слайдера Instagram (Центрированный вариант) --- */
+.steps-slider-wrapper {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    margin: 30px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    max-width: 650px;
+    text-align: center;
+}
+
+.instagram-slider {
+    position: relative;
+    margin-top: 20px;
+    background: #fdfdfd;
+    border: 1px solid #eef2f5;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.slider-slides {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.insta-slide {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+    .insta-slide.active {
+        display: flex;
+    }
+
+.slide-content {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 5px;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.step-badge {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 15px auto;
+    background: #2e7d32;
+    color: white;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.slide-content p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 10px 0;
+    text-align: justify; /*по ширине*/
+}
+
+.slide-img-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.slider-img {
+    max-width: 230px;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.slider-btn {
+    background: #1f2a2f;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+    .slider-btn:hover:not(:disabled) {
+        background: #2c3e2f;
+    }
+
+    .slider-btn:disabled {
+        background: #cccccc;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+/* ---------- Twitter/X Slider ---------- */
+.twitter-slider {
+    position: relative;
+    margin-top: 20px;
+    background: #fdfdfd;
+    border: 1px solid #eef2f5;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.twitter-slide {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.twitter-slide.active {
+    display: flex;
+}
+
+/* --- Обновленные стили интерактивного чек-листа --- */
+.interactive-checklist {
+    background-color: #f8f9fa;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    margin-top: 20px;
+}
+
+.checklist-row {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+    .checklist-row:hover {
+        border-color: #2e7d32;
+        box-shadow: 0 2px 8px rgba(46, 125, 50, 0.08);
+    }
+
+    .checklist-row input[type="checkbox"] {
+        margin-right: 16px;
+        transform: scale(1.3);
+        cursor: pointer;
+        accent-color: #2e7d32;
+    }
+
+    .checklist-row span {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #333;
+    }
+
+/* --- Стили для модального окна увеличения картинок (Lightbox) --- */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 2000; /* Отображается поверх шапки и всего контента */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Затемнение фона */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+    user-select: none;
+}
+
+    .close-modal:hover {
+        color: #ffb74d; /* Подсветка крестика при наведении */
+    }
+
+/* Меняем курсор на лупу, чтобы пользователь понимал, что картинка кликабельна */
+.slider-img, .insta-slide img {
+    cursor: zoom-in;
+}
+
+.img-hint {
+    display: block;
+    font-size: 0.8rem;
+    color: #555;
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-style: italic;
+    order: -1;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 680px) {
+    nav a {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+
+    .question {
+        padding: 14px;
+    }
+
+    section {
+        padding: 20px 15px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    /* Исправляем чек-листы */
+    .interactive-checklist {
+        padding: 12px;
+    }
+
+    .checklist-row {
+        padding: 12px;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+        .checklist-row span,
+        .checklist-row label,
+        .checklist-row p {
+            flex: 1;
+            min-width: 0;
+            word-break: break-word;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+    /* Компактный дизайн слайдеров с увеличенным местом под скриншоты */
+    .steps-slider-wrapper {
+        padding: 5px;
+        margin: 10px 0;
+    }
+
+    .instagram-slider {
+        padding: 5px;
+    }
+
+    .insta-slide {
+        gap: 10px;
+    }
+
+        /* Увеличиваем размер скриншотов для лучшей читаемости */
+        .slider-img,
+        .insta-slide img {
+            max-width: 100%;
+            max-height: 320px;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 6px;
+        }
+
+    /* Выравниваем текст по левому краю */
+    .slide-content p {
+        font-size: 0.95rem;
+        line-height: 1.45;
+        text-align: left;
+    }
+
+    .slider-controls {
+        margin-top: 10px;
+        padding-top: 8px;
+    }
+
+    .slider-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+}
+
+.infographic-intro {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #e8f5e9;
+    border-radius: 16px;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.infographic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #e0e7e6;
+    transition: all 0.25s;
+    cursor: pointer;
+    position: relative;
+}
+
+    .info-card:hover, .info-card.expanded {
+        border-color: #2e7d32;
+        box-shadow: 0 6px 20px rgba(46,125,50,0.15);
+        transform: translateY(-3px);
+    }
+
+    .info-card::before {
+        content: attr(data-step);
+        position: absolute;
+        top: 12px;
+        right: 15px;
+        background: #2e7d32;
+        color: white;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+.info-icon {
+    font-size: 2.2rem;
+    margin: 10px 0 8px;
+    display: block;
+}
+
+.info-card h4 {
+    margin: 8px 0 6px;
+    color: #1e3c2c;
+}
+
+.info-card > p {
+    font-size: 0.95rem;
+    margin: 0 0 8px;
+}
+
+.info-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
+    opacity: 0;
+    text-align: left;
+    background: #f9fbf9;
+    border-radius: 10px;
+    padding: 0 8px;
+    margin-top: 5px;
+}
+
+.info-card.expanded .info-details {
+    max-height: 600px; /* Увеличенного лимита хватит для отображения всех пунктов */
+    opacity: 1;
+    padding: 12px;
+}
+
+.info-details ul {
+    padding-left: 20px;
+    margin: 8px 0;
+    font-size: 0.9rem;
+}
+
+.info-details li {
+    margin: 4px 0;
+}
+
+.expand-hint {
+    font-size: 0.8rem;
+    color: #2e7d32;
+    font-weight: 500;
+    margin-top: 5px;
+    display: block;
+}
+
+    .expand-hint::after {
+        content: '  ▼ ';
+        transition: transform 0.3s;
+    }
+
+.info-card.expanded .expand-hint::after {
+    transform: rotate(180deg);
+    content: '  ▲ ';
+}
+
+.info-tip-text {
+    background: #e3f2fd;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin: 20px auto 0;
+    max-width: 800px;
+    text-align: center;
+    border-left: 4px solid #2196f3;
+    font-size: 0.95rem;
+}
+
+/* --- Стили для продвинутых чек-листов --- */
 .checklist-category {
     margin: 18px 0;
     background: #fff;
@@ -278,29 +712,31 @@ footer {
     margin: 8px 0;
 }
 
-.checklist li {
-    margin: 8px 0;
-}
+    .checklist li {
+        margin: 8px 0;
+    }
 
-.checklist label {
-    cursor: pointer;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-}
+    .checklist label {
+        cursor: pointer;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
 
-.checklist input[type="checkbox"] {
-    transform: scale(1.1);
-    margin-top: 4px;
-    accent-color: #2e7d32;
-}
+    .checklist input[type="checkbox"] {
+        transform: scale(1.1);
+        margin-top: 4px;
+        accent-color: #2e7d32;
+        cursor: pointer;
+    }
 
-.checklist .hint {
-    display: block;
-    font-size: 0.85rem;
-    color: #777;
-    margin-top: 3px;
-}
+    .checklist .hint {
+        display: block;
+        font-size: 0.85rem;
+        color: #777;
+        margin-top: 3px;
+        padding-left: 2px;
+    }
 
 .progress-section {
     background: #f0f7f0;
@@ -350,238 +786,72 @@ footer {
     margin-right: 4px;
 }
 
-.stat-dot.basic { background: #1976d2; }
-.stat-dot.advanced { background: #ef6c00; }
-.stat-dot.expert { background: #c2185b; }
+    .stat-dot.basic {
+        background: #1976d2;
+    }
 
-/* Инфографика */
-.infographic-intro {
-    text-align: center;
-    margin-bottom: 20px;
-    padding: 15px;
-    background: #e8f5e9;
-    border-radius: 16px;
-}
+    .stat-dot.advanced {
+        background: #ef6c00;
+    }
 
-.infographic-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+    .stat-dot.expert {
+        background: #c2185b;
+    }
 
-.info-card {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-    border: 2px solid #e0e7e6;
-    transition: all 0.25s;
-    cursor: pointer;
-    position: relative;
-}
-
-.info-card:hover, .info-card.expanded {
-    border-color: #2e7d32;
-    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.15);
-    transform: translateY(-3px);
-}
-
-.info-card::before {
-    content: attr(data-step);
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    background: #2e7d32;
-    color: white;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
+/* Форматирование интерактивного блока чек-листов внутри слайдеров */
+.interactive-checklist {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-.info-icon {
-    font-size: 2.2rem;
-    margin: 10px 0 8px;
-    display: block;
-}
-
-.info-card h4 {
-    margin: 8px 0 6px;
-    color: #1e3c2c;
-}
-
-.info-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.25s ease;
-    opacity: 0;
-    text-align: left;
-    background: #f9fbf9;
-    border-radius: 10px;
-    padding: 0 8px;
-    margin-top: 5px;
-}
-
-.info-card.expanded .info-details {
-    max-height: 300px;
-    opacity: 1;
-    padding: 12px;
-}
-
-.info-details ul {
-    padding-left: 20px;
-    margin: 8px 0;
-}
-
-.expand-hint {
-    font-size: 0.8rem;
-    color: #2e7d32;
-    font-weight: 500;
-    margin-top: 5px;
-    display: block;
-}
-
-.expand-hint::after {
-    content: ' ▼ ';
-    transition: transform 0.3s;
-}
-
-.info-card.expanded .expand-hint::after {
-    transform: rotate(180deg);
-    content: ' ▲ ';
-}
-
-/* Стили для страницы "Введение в цифровую безопасность" */
-.cyber-intro-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    margin: 25px 0;
-}
-
-.threat-card {
-    background: #ffffff;
-    border-radius: 24px;
-    padding: 1.2rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid #2e7d32;
-    transition: transform 0.2s;
-}
-
-.threat-card:hover {
-    transform: translateY(-5px);
-}
-
-.threat-card h3 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 0;
-    color: #1e3c2c;
-}
-
-.defense-badge {
-    background: #e8f0e5;
-    padding: 4px 12px;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #2e7d32;
-    display: inline-block;
-    margin-top: 8px;
-}
-
-.stats-box {
-    background: #f0f7f0;
-    border-radius: 28px;
-    padding: 1.5rem;
-    margin: 2rem 0;
-    text-align: center;
-}
-
-.pillar-list {
-    display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 12px;
-    list-style: none;
-    padding: 0;
+    margin-top: 15px;
+    padding: 10px 5px;
 }
 
-.pillar-list li {
-    background: #eef2fa;
-    padding: 8px 18px;
-    border-radius: 40px;
-    font-weight: 500;
+    /* Оформление каждого отдельного пункта в слайдере */
+    .interactive-checklist .slider-checkbox-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        color: #333;
+    }
+
+    /* Стилизация чекбоксов внутри слайдера */
+    .interactive-checklist input[type="checkbox"] {
+        transform: scale(1.1);
+        margin-top: 3px;
+        accent-color: #2e7d32;
+        cursor: pointer;
+    }
+
+/* Плавный скролл для всей страницы при переходе по якорям */
+html {
+    scroll-behavior: smooth;
 }
 
-.quote-block {
-    background: #fff8e7;
-    border-radius: 24px;
-    padding: 18px 24px;
-    margin: 25px 0;
-    border-left: 8px solid #ffb74d;
-    font-style: italic;
-}
-
-/* Модальное окно */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    max-width: 90%;
-    max-height: 85%;
-    object-fit: contain;
+/* Стили для кнопки перехода к чек-листу */
+.checklist-jump-link {
+    display: inline-block;
+    margin: 10px 0 20px 0;
+    padding: 10px 16px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    text-decoration: none;
     border-radius: 8px;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid #c8e6c9;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
-.close-modal {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #ffffff;
-    font-size: 42px;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
-}
+    .checklist-jump-link:hover {
+        background-color: #c8e6c9;
+        transform: translateY(-1px);
+    }
 
-.close-modal:hover {
-    color: #ffb74d;
-}
-
-/* Адаптивность */
-@media (max-width: 680px) {
-    nav a {
-        padding: 10px 12px;
-        font-size: 0.85rem;
-    }
-    
-    .page {
-        padding: 20px 15px;
-    }
-    
-    h2 {
-        font-size: 1.3rem;
-    }
-    
-    .cyber-intro-grid {
-        gap: 16px;
-    }
+/* Компенсация высоты фиксированного навигационного меню при скролле */
+.platform {
+    scroll-margin-top: 70px;
 }
