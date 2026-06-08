@@ -27,47 +27,68 @@
 
     <!-- Главная -->
     <section id="home" class="active">
-        <div class="home-hero">
+        <div class="home-hero home-hero-main">
             <div class="home-hero-content">
-                <span class="eyebrow">Практический тренажер по цифровой безопасности</span>
-                <h2>🔐 Защитите аккаунты до того, как возникнет проблема</h2>
+                <span class="eyebrow">Центр быстрой проверки аккаунтов</span>
+                <h2>Безопасность соцсетей начинается здесь</h2>
                 <p>
-                    Здесь собраны понятные инструкции, чек-листы и тестовые ситуации, которые помогают быстро проверить
-                    безопасность профилей в социальных сетях и закрыть самые частые слабые места.
+                    Наш сайт поможет разобраться в базовой безопасности социальных сетей и шаг за шагом защитить
+                    личные аккаунты. Его цель - показать простые настройки, которые снижают риск взлома,
+                    утечки данных и мошенничества от имени пользователя.
                 </p>
                 <div class="home-actions">
-                    <a href="#" class="primary-action" data-target="intro-security">Начать с введения</a>
-                    <a href="#" class="secondary-action" data-target="test">Пройти тест</a>
+                    <a href="#" class="primary-action" data-target="test">Проверить себя</a>
+                    <a href="#" class="secondary-action" data-target="intro-security">Освежить основы</a>
                 </div>
             </div>
-            <div class="home-hero-panel" aria-label="Ключевые направления защиты">
-                <div><strong>2FA</strong><span>дополнительная защита входа</span></div>
-                <div><strong>Пароли</strong><span>уникальные и сложные комбинации</span></div>
-                <div><strong>Приватность</strong><span>контроль личной информации</span></div>
-                <div><strong>Сессии</strong><span>проверка активных устройств</span></div>
+            <div class="home-security-meter" aria-label="Краткая оценка защиты">
+                <span class="meter-label">Минимум для спокойного аккаунта</span>
+                <div class="meter-row"><span>Пароль</span><strong>уникальный</strong></div>
+                <div class="meter-row"><span>Вход</span><strong>2FA включена</strong></div>
+                <div class="meter-row"><span>Профиль</span><strong>приватность настроена</strong></div>
+                <div class="meter-row"><span>Сессии</span><strong>лишние закрыты</strong></div>
             </div>
         </div>
 
-        <div class="home-grid">
+        <div class="home-quick-start" aria-label="Быстрый выбор социальной сети">
+            <a href="#" data-target="facebook"><span>Facebook</span><strong>проверить вход, страницы и рекламу</strong></a>
+            <a href="#" data-target="instagram"><span>Instagram</span><strong>закрыть профиль и защитить восстановление</strong></a>
+            <a href="#" data-target="twitter"><span>Twitter/X</span><strong>настроить приватность и фильтры</strong></a>
+            <a href="#" data-target="vk"><span>ВКонтакте</span><strong>ограничить видимость и активные сеансы</strong></a>
+            <a href="#" data-target="ok"><span>Одноклассники</span><strong>защититься от рассылок и мошенников</strong></a>
+        </div>
+
+        <div class="home-grid home-focus-grid">
             <article class="home-card">
-                <span class="home-card-icon">🧭</span>
-                <h3>Понять основы</h3>
-                <p>Начните с новой вкладки про информационную безопасность: там объяснены главные угрозы и базовые правила.</p>
+                <span class="home-card-icon">01</span>
+                <h3>Начните с риска</h3>
+                <p>Если аккаунт привязан к почте, банку, рекламе или рабочим контактам, первым делом включите двухфакторную защиту и проверьте способы восстановления.</p>
             </article>
             <article class="home-card">
-                <span class="home-card-icon">✅</span>
-                <h3>Проверить аккаунты</h3>
-                <p>Откройте вкладку нужной соцсети и отметьте пункты чек-листа по мере настройки безопасности.</p>
+                <span class="home-card-icon">02</span>
+                <h3>Закройте лишний доступ</h3>
+                <p>Проверьте активные устройства, сторонние приложения, видимость телефона, даты рождения, списка друзей и старых публикаций.</p>
             </article>
             <article class="home-card">
-                <span class="home-card-icon">📝</span>
-                <h3>Закрепить знания</h3>
-                <p>Тест из 20 вопросов покажет, где всё уже хорошо, а какие темы стоит повторить внимательнее.</p>
+                <span class="home-card-icon">03</span>
+                <h3>Закрепите привычку</h3>
+                <p>Раз в месяц проходите чек-лист, обновляйте пароли при подозрениях и повторяйте тест, чтобы не пропустить слабые места.</p>
             </article>
         </div>
 
-        <div class="home-note">
-            <strong>⭐ Совет месяца:</strong> Никогда не вводите пароль на подозрительных сайтах, даже если они выглядят как Facebook или Instagram.
+        <div class="home-dashboard">
+            <div>
+                <span>5</span>
+                <p>социальных сетей с отдельными чек-листами</p>
+            </div>
+            <div>
+                <span>20</span>
+                <p>вопросов в итоговом тесте</p>
+            </div>
+            <div>
+                <span>4</span>
+                <p>базовые опоры защиты: пароль, 2FA, приватность, сессии</p>
+            </div>
         </div>
     </section>
 
