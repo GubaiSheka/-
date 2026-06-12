@@ -37,21 +37,10 @@ function updateProgress(platform, total) {
     if (text) text.textContent = `${checked}/${total}`;
 }
 
-// Нерабочая функция, очки в чек-листах не обновлялись.
-
-// function updateCategory(prefix, total) {
-//     const checked = countChecked(prefix);
-//     const countEl = document.getElementById(`${prefix}-count`);
-//     const totalEl = document.getElementById(`${prefix}-total`);
-//     if (countEl) countEl.textContent = `${checked}/${total}`;
-//     if (totalEl) totalEl.textContent = `${checked}/${total}`;
-// }
-
-//Фикс проблемы с обновлением очков
+//Фикс проблемы с обновлением очков в продвинутых чек-листах
 function updateCategory(prefix, total) {
     const checked = countChecked(prefix);
 
-    // Расшифровываем префикс (например, из "fb_b" делаем "fb-basic")
     const parts = prefix.split('_');
     const platform = parts[0];
     const catLetter = parts[1];
@@ -64,7 +53,6 @@ function updateCategory(prefix, total) {
 
     const htmlPrefix = `${platform}-${catNames[catLetter]}`;
 
-    // Теперь скрипт ищет правильные ID из оригинальной HTML-разметки
     const countEl = document.getElementById(`${htmlPrefix}-count`);
     const totalEl = document.getElementById(`${htmlPrefix}-total`);
 
@@ -140,7 +128,7 @@ function toggleCategory(catId) {
                 });
                 html += `</div></div>`;
             } else {
-                html += `<div class="question" data-qid="${idx}"><h3>${q.text} <span style="font-size:0.85rem; background:#f6f5c4; padding:2px 8px; border-radius:20px;">(возможно несколько ответов)</span></h3><div class="answers-vertical">`;
+                html += `<div class="question" data-qid="${idx}"><h3>${q.text} <span style="font-size:0.85rem; background:rgba(0,229,255,.12); color:#00e5ff; padding:2px 8px; border-radius:20px;">(возможно несколько ответов)</span></h3><div class="answers-vertical">`;
                 q.options.forEach((opt, optIdx) => {
                     html += `<label><input type="checkbox" name="${namePrefix}_chk" value="${optIdx}"> ${opt}</label>`;
                 });
@@ -261,21 +249,18 @@ function toggleCategory(catId) {
         const modalImg = document.getElementById("fullImg");
         const closeModal = document.querySelector(".close-modal");
 
-        // Проверяем, существуют ли элементы модального окна на странице
         if (!modal || !modalImg) {
             console.error("Ошибка: Модальное окно #imageModal или картинка #fullImg не найдены в HTML!");
             return;
         }
 
-        // Находим все скриншоты в слайдерах и вешаем на них событие клика
         document.querySelectorAll('.slider-img, .insta-slide img').forEach(img => {
             img.addEventListener('click', function () {
-                modal.style.display = "flex"; // Показываем модальное окно
-                modalImg.src = this.src;     // Берем адрес картинки, на которую кликнули
+                modal.style.display = "flex";
+                modalImg.src = this.src;
             });
         });
 
-        // Закрытие по клику на крестик
         if (closeModal) {
             closeModal.addEventListener('click', () => {
                 modal.style.display = "none";
@@ -289,6 +274,7 @@ function toggleCategory(catId) {
             }
         });
     });
+
 function toggleInfoCard(card) {
     card.classList.toggle('expanded');
 }
@@ -296,7 +282,7 @@ function toggleInfoCard(card) {
 document.addEventListener('DOMContentLoaded', () => {
     const sliderCheckboxes = document.querySelectorAll('input[data-sync]');
 
-    // Функция синхронизации состояния
+    // Функция синхронизации состояния чек-листов
     function initSliderCheckboxes() {
         sliderCheckboxes.forEach(sliderCb => {
             const targetKey = sliderCb.getAttribute('data-sync');
@@ -308,11 +294,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Запускаем проверку сразу и чуть позже для надежности
     initSliderCheckboxes();
     setTimeout(initSliderCheckboxes, 100);
 
-    // Настраиваем клики с принудительным вызовом пересчета очков
     sliderCheckboxes.forEach(sliderCb => {
         const targetKey = sliderCb.getAttribute('data-sync');
         const mainCb = document.querySelector(`input[data-key="${targetKey}"]`);
@@ -322,7 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sliderCb.addEventListener('change', () => {
             mainCb.checked = sliderCb.checked;
 
-            // Добавляем класс completed родителю
             const li = mainCb.closest('li');
             if (mainCb.checked) {
                 li?.classList.add('completed');
@@ -330,14 +313,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 li?.classList.remove('completed');
             }
 
-            // Записываем в localStorage, чтобы сохранилось при перезагрузке
             localStorage.setItem(targetKey, mainCb.checked);
 
-            // Имитируем полноценное событие изменения для триггера всех счетчиков прогресса
             mainCb.dispatchEvent(new Event('change', { bubbles: true }));
 
-            // Если функции привязаны жестко к клику, 
-            // мы принудительно вызываем глобальные функции обновления, если они доступны
             if (typeof updateProgress === 'function') updateProgress('ig', 14);
             if (typeof updateCategory === 'function') {
                 updateCategory('ig_b', 5);
@@ -346,7 +325,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Если пользователь кликает в самом нижнем чек-листе — обновляем слайдер
         mainCb.addEventListener('change', () => {
             sliderCb.checked = mainCb.checked;
         });
