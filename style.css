@@ -236,8 +236,8 @@ section {
 
 .home-hero-main {
     background:
-        linear-gradient(135deg, rgba(24, 51, 40, 0.95), rgba(46, 125, 50, 0.88)),
-        url("img/inst-start-page.jpg") center/cover;
+        linear-gradient(135deg, rgba(24, 51, 40, 0.95), rgba(46, 125, 50, 0.88));/*,
+        url("img/inst-start-page.jpg") center/cover; -- Фикс бага с отображением скриншота на главной*/ 
 }
 
 .home-security-meter {
@@ -1074,6 +1074,7 @@ footer {
     border: 1px solid #e8eee9;
 }
 
+/* Базовые стили для заголовка */
 .category-header {
     display: flex;
     justify-content: space-between;
@@ -1084,14 +1085,23 @@ footer {
     cursor: pointer;
     font-weight: 600;
     color: #2c3e2f;
+    gap: 12px;
 }
+
+    /* На ПК заголовок и бэджик идут просто в ряд друг за другом */
+    .category-header > span:first-child {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
 
 .category-badge {
     font-size: 0.75rem;
     padding: 3px 10px;
     border-radius: 15px;
     font-weight: 500;
-    margin-right: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .badge-basic {
@@ -1110,36 +1120,49 @@ footer {
 }
 
 .checklist {
-    list-style: none;
     padding: 0;
-    margin: 8px 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
 }
 
     .checklist li {
-        margin: 8px 0;
+        margin-bottom: 6px;
+        width: 100%;
     }
 
-    .checklist label {
-        cursor: pointer;
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-    }
+        .checklist li label {
+            display: block;
+            position: relative;
+            padding-left: 32px;
+            width: 100%;
+            cursor: pointer;
+            line-height: 1.4;
+        }
 
-    .checklist input[type="checkbox"] {
-        transform: scale(1.1);
-        margin-top: 4px;
-        accent-color: #2e7d32;
-        cursor: pointer;
-    }
+        .checklist li input[type="checkbox"] {
+            position: absolute;
+            left: 2px;
+            top: 5px;
+            margin: 0;
+            width: 14px;
+            height: 14px;
+        }
 
-    .checklist .hint {
-        display: block;
-        font-size: 0.85rem;
-        color: #777;
-        margin-top: 3px;
-        padding-left: 2px;
-    }
+.hint {
+    display: inline;
+    font-size: 0.85em;
+    color: #666;
+    opacity: 0.9;
+    margin-left: 6px;
+}
+
+/* Общее ограничение для контейнеров */
+.checklist-category, .platform {
+    overflow: hidden;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
 
 .progress-section {
     background: #f0f7f0;
@@ -1178,7 +1201,15 @@ footer {
     margin-top: 8px;
     font-size: 0.8rem;
     color: #666;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Позволяет группам переноситься целиком, если не хватает места */
+}
+
+/* Класс-контейнер для неделимой тройки элементов */
+.stat-group {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 3px; /* Создает аккуратные пробелы между точкой, текстом и счетчиком */
 }
 
 .stat-dot {
@@ -1186,7 +1217,8 @@ footer {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    margin-right: 4px;
+    margin-right: 6px; /* Небольшой аккуратный отступ от точки до текста */
+    flex-shrink: 0;
 }
 
     .stat-dot.basic {
@@ -1257,4 +1289,32 @@ html {
 /* Компенсация высоты фиксированного навигационного меню при скролле */
 .platform {
     scroll-margin-top: 70px;
+}
+
+/*Адаптация чек-листов под мобильные устройства*/
+@media (max-width: 768px) {
+    .category-header {
+        align-items: flex-start; /* Переключаем на верхнее выравнивание */
+    }
+
+        /* На мобильных перестраиваем бэджик и текст в колонку */
+        .category-header > span:first-child {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        /* На мобильных сдвигаем счетчик вниз к строке текста */
+        .category-header > span:last-child {
+            margin-top: 32px;
+        }
+    .progress-stats {
+        gap: 8px 14px; /* Делаем зазоры между группами на мобильных чуть свободнее */
+    }
+
+    .hint {
+        display: block; /* На смартфонах переносим подсказку на новую строку */
+        margin-left: 0;
+        margin-top: 4px;
+    }
 }
